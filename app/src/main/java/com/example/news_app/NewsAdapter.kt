@@ -4,19 +4,23 @@ import android.app.Activity
 import android.content.Intent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.core.app.ShareCompat
 import androidx.core.net.toUri
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 
 class NewsAdapter(val a: Activity, val articles: ArrayList<Article>) :
     RecyclerView.Adapter<NewsAdapter.NewsVH>() {
-    class  NewsVH(v: View):RecyclerView.ViewHolder(v) {
-        val parent: CardView = v.findViewById(R.id.parent)
+    class  NewsVH(v: View):ViewHolder(v) {
+        val parent: CardView = v.findViewById(R.id.parent_cr)
         val image: ImageView = v.findViewById(R.id.news_image)
         val title: TextView = v.findViewById(R.id.title_tv)
+        val share : CardView = v.findViewById(R.id.share_cv)
 
     }
 
@@ -40,6 +44,14 @@ class NewsAdapter(val a: Activity, val articles: ArrayList<Article>) :
         holder.parent.setOnClickListener {
             val i = Intent(Intent.ACTION_VIEW,website.toUri())
             a.startActivity(i)
+        }
+        holder.share.setOnClickListener {
+            ShareCompat
+                .IntentBuilder(a)
+                .setType("text/plain")
+                .setChooserTitle("Share News With: ")
+                .setText(articles[position].url)
+                .startChooser()
         }
     }
 
