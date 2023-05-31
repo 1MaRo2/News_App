@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity">
+
+    <RadioGroup
+        android:id="@+id/rb_group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+        <RadioButton
+            android:id="@+id/rb_eg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Egypt" />
+
+        <RadioButton
+            android:id="@+id/rb_de"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Germany" />
+
+        <RadioButton
+            android:id="@+id/rb_jp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Japan" />
+
+        <RadioButton
+            android:id="@+id/rb_us"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="United States" />
+    </RadioGroup>
+
+</FrameLayout>
